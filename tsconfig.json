@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
