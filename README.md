@@ -16,13 +16,11 @@ This library is distributed on `npm`.
 npm install kintone-typeguard
 ```
 
-You can then use `require` or `import` to import the library.
+You can then use `import` to import the library.
 
 ```ts
 // ES modules
 import { guardFormField, guardFormLayout, guardRecord } from "kintone-typeguard";
-// CommonJS
-const { guardFormField, guardFormLayout, guardRecord } = require("kintone-typeguard");
 ```
 
 ## Usage
