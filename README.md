@@ -75,4 +75,4 @@ if (guardRecord.isCheckBox(record.xxx)) {
 
 ## License
 
-- [MIT](https://github.com/kintone/js-sdk/tree/master/LICENSE)
+- [MIT](https://github.com/cy-takeuchi/kintone-typeguard/blob/main/LICENSE)
