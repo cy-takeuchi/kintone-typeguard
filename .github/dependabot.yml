@@ -18,12 +18,10 @@ updates:
       - "cy-takeuchi"
     commit-message:
       prefix: "fix"
-      prefix-development: "fix(dev)"
+    allow:
+      - dependency-type: "all"
     groups:
       group-dependencies:
-        dependency-type:
-          - "production"
-          - "development"
         patterns:
           - "*"
         update-types:
