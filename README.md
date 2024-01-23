@@ -1,5 +1,7 @@
 # kintone-typeguard
 
+[![npm version](https://badge.fury.io/js/kintone-typeguard.svg)](https://badge.fury.io/js/kintone-typeguard)
+
 Typeguard for [@kintone/rest-api-client](https://www.npmjs.com/package/@kintone/rest-api-client) fields.
 
 - [Installation](#installation)
