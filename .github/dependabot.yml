@@ -21,6 +21,7 @@ updates:
       prefix-development: "fix(dev)"
     groups:
       group-dependencies:
+        dependency-type: "all"
         patterns:
           - "*"
         update-types:
