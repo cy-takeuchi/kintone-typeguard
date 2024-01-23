@@ -21,7 +21,9 @@ updates:
       prefix-development: "fix(dev)"
     groups:
       group-dependencies:
-        dependency-type: "all"
+        dependency-type:
+          - "production"
+          - "development"
         patterns:
           - "*"
         update-types:
