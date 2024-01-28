@@ -13,13 +13,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "sunday"
+      day: "saturday"
     assignees:
       - "cy-takeuchi"
     commit-message:
       prefix: "fix"
-    allow:
-      - dependency-type: "all"
     groups:
       group-dependencies:
         patterns:
@@ -27,7 +25,3 @@ updates:
         update-types:
           - "minor"
           - "patch"
-    ignore:
-      - dependency-name: "*"
-        update-types:
-          - "version-update:semver-major"
