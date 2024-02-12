@@ -5,7 +5,7 @@
     "dist"
   ],
   "version": "0.9.3",
-  "description": "Typeguard for @kintone/rest-api-client fields.",
+  "description": "Typeguard for kintone JavaScript Client.",
   "repository": {
     "type": "git",
     "url": "https://github.com/cy-takeuchi/kintone-typeguard.git"
