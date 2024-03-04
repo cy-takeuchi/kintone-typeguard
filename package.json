@@ -4,7 +4,7 @@
   "files": [
     "dist"
   ],
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Typeguard for kintone JavaScript Client.",
   "repository": {
     "type": "git",
