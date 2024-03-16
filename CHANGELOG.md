@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.7](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.9.6...v0.9.7) (2024-03-16)
+
+
+### Bug Fixes
+
+* bump follow-redirects from 1.15.5 to 1.15.6 ([657039b](https://github.com/cy-takeuchi/kintone-typeguard/commit/657039bc96734d00e94d3974811f8cf80527a706))
+* bump the group-dependencies group with 4 updates ([7139112](https://github.com/cy-takeuchi/kintone-typeguard/commit/71391120feb0e8d7bb782b3018eb69f32219af0c))
+
 ## [0.9.6](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.9.5...v0.9.6) (2024-03-04)
 
 
