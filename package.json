@@ -37,12 +37,14 @@
     "prebuild": "rimraf ./dist",
     "build": "tsc && vite build",
     "watch": "tsc && vite build --watch",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "check": "biome check --apply ./src"
   },
   "dependencies": {
     "@kintone/rest-api-client": "^5.0.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.6.2",
     "@types/node": "^20.11.19",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
