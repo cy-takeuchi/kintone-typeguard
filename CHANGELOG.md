@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.10.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.9.8...v0.10.0) (2024-03-23)
+
+
+### Features
+
+* add biome ([2a53f00](https://github.com/cy-takeuchi/kintone-typeguard/commit/2a53f00867b0c8b755e9937ac821248e46bae508))
+* update package ([739d2d1](https://github.com/cy-takeuchi/kintone-typeguard/commit/739d2d1b962bb239b6c0651a6e91b6346705f97d))
+
+
+### Bug Fixes
+
+* add biome workflow ([580d9ab](https://github.com/cy-takeuchi/kintone-typeguard/commit/580d9ab55d7dafe467a2fb8cbbd3a63e4f3e9968))
+* enable forceConsistentCasingInFileNames ([9d493c7](https://github.com/cy-takeuchi/kintone-typeguard/commit/9d493c72ef369106f477e5ba532dd7a125f5d3a7))
+* import type ([c58b74c](https://github.com/cy-takeuchi/kintone-typeguard/commit/c58b74ccb2e61c36e3c7020404e45eea75548783))
+* remove prettier ([4348017](https://github.com/cy-takeuchi/kintone-typeguard/commit/4348017540abb74efacc0a316a985858b64057ff))
+
 ## [0.9.8](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.9.7...v0.9.8) (2024-03-23)
 
 
