@@ -44,7 +44,7 @@
     "@kintone/rest-api-client": "^5.4.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.4",
+    "@biomejs/biome": "1.7.3",
     "@types/node": "^20.11.30",
     "rimraf": "^5.0.5",
     "typescript": "^5.4.3",
