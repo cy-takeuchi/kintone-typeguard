@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.10.5...v0.11.0) (2024-06-12)
+
+
+### Features
+
+* レコードのタイプガードを@kintone/rest-api-clientベースに変更 ([e581dc3](https://github.com/cy-takeuchi/kintone-typeguard/commit/e581dc32d43b307c6bb193c3427f40a2daed9ec1))
+
 ## [0.10.5](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.10.4...v0.10.5) (2024-06-12)
 
 
