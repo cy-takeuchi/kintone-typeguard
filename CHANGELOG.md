@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.5](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.10.4...v0.10.5) (2024-06-12)
+
+
+### Bug Fixes
+
+* bump the group-dependencies group across 1 directory with 4 updates ([6f94f68](https://github.com/cy-takeuchi/kintone-typeguard/commit/6f94f682d98c840e6cb2c07478bd600feb0bfa79))
+
 ## [0.10.4](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.10.3...v0.10.4) (2024-05-17)
 
 
