@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.12.0...v0.12.1) (2024-06-16)
+
+
+### Bug Fixes
+
+* isFile error ([7c7c4f5](https://github.com/cy-takeuchi/kintone-typeguard/commit/7c7c4f5175267b25986aaaaa9348f3ae07e721ec))
+* update package ([c0da3da](https://github.com/cy-takeuchi/kintone-typeguard/commit/c0da3da30268ddf57091263e05145a9e17eeecb7))
+
 ## [0.12.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.11.0...v0.12.0) (2024-06-16)
 
 
