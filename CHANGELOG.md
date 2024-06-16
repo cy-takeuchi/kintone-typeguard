@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.12.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.11.0...v0.12.0) (2024-06-16)
+
+
+### Features
+
+* support read/write record ([e0e582b](https://github.com/cy-takeuchi/kintone-typeguard/commit/e0e582b7a672e24f4e0dedcf02b5a450267847dc))
+
+
+### Bug Fixes
+
+* temp ([583c5d4](https://github.com/cy-takeuchi/kintone-typeguard/commit/583c5d4b924fe6b87e1bdd5f9a08205892afa445))
+
 ## [0.11.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.10.5...v0.11.0) (2024-06-12)
 
 
