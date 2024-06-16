@@ -160,7 +160,7 @@ const isFile = (
 		kintoneRecordFieldGet.OneOf,
 		kintoneRecordFieldSet.OneOf
 	>,
-) => field.type === "FILE";
+): field is KintoneRecordField.File => field.type === "FILE";
 const isSubtable = (
 	field: FF<
 		KintoneRecordField.OneOf,
