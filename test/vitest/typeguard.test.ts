@@ -1,9 +1,17 @@
-import { KintoneRestAPIClient } from "@kintone/rest-api-client";
+import fs from "node:fs";
+import { describe } from "node:test";
+import {
+	type KintoneFormFieldProperty,
+	type KintoneRecordField,
+	KintoneRestAPIClient,
+} from "@kintone/rest-api-client";
+import { config } from "dotenv";
 import { afterAll, beforeAll, expect, expectTypeOf, test } from "vitest";
-import { isFile, isSingleLineText } from "../../src/functions/record";
+import { guardFormField, guardRecord } from "../../src/";
 import { addRecord, createApp } from "../functions/operationKintoneApp";
 
-import "dotenv/config";
+config();
+config({ path: "test/params/.env" });
 
 const { baseUrl, username, password } = process.env;
 if (!baseUrl || !username || !password) process.exit(1);
@@ -13,59 +21,84 @@ const client = new KintoneRestAPIClient({
 	auth: { username, password },
 });
 
-let app = "0";
-let id = "0";
+let app = process.env.app;
+let id = process.env.id;
 
 beforeAll(async () => {
-	app = await createApp(client);
-	id = await addRecord(client, app);
+	if (!app || !id) {
+		app = await createApp(client);
+		id = await addRecord(client, app);
+
+		const file = "test/params/.env";
+		const data = `app=${app}\nid=${id}`;
+		fs.writeFileSync(file, data, {
+			flag: "w",
+		});
+	}
 });
 
 afterAll(async () => {});
 
-test("REST API", async () => {
-	const { record } = await client.record.getRecord({ app, id });
-	for (const fieldCode of Object.keys(record)) {
-		const field = record[fieldCode];
+describe("REST API", async () => {
+	test("RECORD", async () => {
+		if (!app || !id) process.exit(1);
 
-		if (isSingleLineText(field)) {
-			expect(isSingleLineText(field)).toBe(true);
-			expect(Object.keys(field).length).toBe(2);
+		const { record } = await client.record.getRecord({ app, id });
 
-			expect(field.type).toEqual("SINGLE_LINE_TEXT");
-			expect(field.value).toEqual("oooo株式会社");
+		expect(guardRecord.isSingleLineText(record.文字列1行)).toBe(true);
+		expect(guardRecord.isFile(record.添付ファイル)).toBe(true);
 
-			expectTypeOf(field.type).toEqualTypeOf<"SINGLE_LINE_TEXT">();
-			expectTypeOf(field.value).toEqualTypeOf<string>();
+		expect(guardRecord.isNumber(record.文字列1行)).toBe(false);
+		expect(guardRecord.isNumber(record.添付ファイル)).toBe(false);
 
-			// @ts-expect-error
-			field.value[0].disabled;
+		for (const fieldCode of Object.keys(record)) {
+			const field = record[fieldCode];
 
-			// @ts-expect-error
-			field.value[0].error;
+			if (guardRecord.isSingleLineText(field)) {
+				expectTypeOf(field).toEqualTypeOf<KintoneRecordField.SingleLineText>();
+
+				// @ts-expect-error
+				field.value[0].disabled;
+
+				// @ts-expect-error
+				field.value[0].error;
+			}
+
+			if (guardRecord.isFile(field)) {
+				expectTypeOf(field).toEqualTypeOf<KintoneRecordField.File>();
+
+				// @ts-expect-error
+				field.value[0].disabled;
+
+				// @ts-expect-error
+				field.value[0].error;
+			}
 		}
+	});
 
-		if (isFile(field)) {
-			expect(isFile(field)).toBe(true);
-			expect(Object.keys(field).length).toBe(2);
-			expect(Object.keys(field.value[0]).length).toBe(4);
+	test("FORM", async () => {
+		if (!app || !id) process.exit(1);
 
-			expect(field.type).toEqual("FILE");
-			expect(field.value[0].name).toEqual("sample.txt");
-			expect(field.value[0].contentType).toEqual("text/plain");
-			expect(field.value[0].size).toEqual("6");
+		const { properties: fields } = await client.app.getFormFields({ app });
 
-			expectTypeOf(field.type).toEqualTypeOf<"FILE">();
-			expectTypeOf(field.value[0].fileKey).toEqualTypeOf<string>();
-			expectTypeOf(field.value[0].name).toEqualTypeOf<string>();
-			expectTypeOf(field.value[0].contentType).toEqualTypeOf<string>();
-			expectTypeOf(field.value[0].size).toEqualTypeOf<string>();
+		expect(guardFormField.isSingleLineText(fields.文字列1行)).toBe(true);
+		expect(guardFormField.isFile(fields.添付ファイル)).toBe(true);
 
-			// @ts-expect-error
-			field.value[0].disabled;
+		expect(guardFormField.isNumber(fields.文字列1行)).toBe(false);
+		expect(guardFormField.isNumber(fields.添付ファイル)).toBe(false);
 
-			// @ts-expect-error
-			field.value[0].error;
+		for (const fieldCode of Object.keys(fields)) {
+			const field = fields[fieldCode];
+
+			if (guardFormField.isSingleLineText(field)) {
+				expectTypeOf(
+					field,
+				).toEqualTypeOf<KintoneFormFieldProperty.SingleLineText>();
+			}
+
+			if (guardFormField.isFile(field)) {
+				expectTypeOf(field).toEqualTypeOf<KintoneFormFieldProperty.File>();
+			}
 		}
-	}
+	});
 });

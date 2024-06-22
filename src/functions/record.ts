@@ -4,8 +4,6 @@ import type { kintoneRecordFieldGet } from "../exportTypes/recordFieldGet";
 import type { kintoneRecordFieldSet } from "../exportTypes/recordFieldSet";
 
 type F<A, B> = A extends B ? B : A;
-// type FF<A, B, C> = F<A, F<B, C>>;
-// type FF<A, B, C, D> = F<A, F<B, F<C, D>>>;
 type FF<A, B, C, D> = F<A, F<B, F<C, F<D, never>>>>;
 
 const isRecordNumber = (
