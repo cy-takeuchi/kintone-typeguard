@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.13.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.12.1...v0.13.0) (2024-06-22)
+
+
+### Features
+
+* JSイベントのレコードを追加 ([3b1d0b2](https://github.com/cy-takeuchi/kintone-typeguard/commit/3b1d0b27e55c8ce61b670d230d211f48e61a5e60))
+* update package ([bb5aca5](https://github.com/cy-takeuchi/kintone-typeguard/commit/bb5aca541af3bb9dbc5afb3533e1aea9f9091c13))
+
+
+### Bug Fixes
+
+* テストの改善 ([6c56991](https://github.com/cy-takeuchi/kintone-typeguard/commit/6c56991c30afce417c84877a62508e58149218a2))
+* テストの追加 ([6b554c4](https://github.com/cy-takeuchi/kintone-typeguard/commit/6b554c4c63b23c95faa0eab1dede1e8193546201))
+
 ## [0.12.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.12.0...v0.12.1) (2024-06-16)
 
 
