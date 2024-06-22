@@ -38,16 +38,19 @@
     "build": "tsc && vite build",
     "watch": "tsc && vite build --watch",
     "prepare": "npm run build",
-    "check": "biome check --apply ./src"
+    "check": "biome check --apply ./src",
+    "test": "vitest --config vite-test.config.ts"
   },
   "dependencies": {
-    "@kintone/rest-api-client": "^5.5.2"
+    "@kintone/rest-api-client": "^5.5.2",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.2",
     "@types/node": "^20.14.7",
     "rimraf": "^5.0.7",
     "typescript": "^5.5.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0"
   }
 }

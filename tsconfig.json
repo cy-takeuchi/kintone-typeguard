@@ -6,7 +6,9 @@
     "declarationMap": true,
     "declarationDir": "./dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
+    "module": "esnext",
   },
-  "include": ["src/**/*", "package.json"]
+  "include": ["src/**/*", "test/**/*", "package.json"]
 }
