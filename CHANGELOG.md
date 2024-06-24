@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.13.0...v0.14.0) (2024-06-24)
+
+
+### Features
+
+* fix type ([3d169ed](https://github.com/cy-takeuchi/kintone-typeguard/commit/3d169ed54c14f8b7b280cd6d35a2de75facc8c05))
+
 ## [0.13.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.12.1...v0.13.0) (2024-06-22)
 
 
