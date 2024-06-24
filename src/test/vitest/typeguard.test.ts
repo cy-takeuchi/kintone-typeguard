@@ -7,7 +7,7 @@ import {
 } from "@kintone/rest-api-client";
 import { config } from "dotenv";
 import { afterAll, beforeAll, expect, expectTypeOf, test } from "vitest";
-import { guardFormField, guardRecord } from "../../src/";
+import { guardFormField, guardRecord } from "../..";
 import { addRecord, createApp } from "../functions/operationKintoneApp";
 
 config();
@@ -29,7 +29,7 @@ beforeAll(async () => {
 		app = await createApp(client);
 		id = await addRecord(client, app);
 
-		const file = "test/params/.env";
+		const file = "src/test/params/.env";
 		const data = `app=${app}\nid=${id}`;
 		fs.writeFileSync(file, data, {
 			flag: "w",

@@ -10,5 +10,5 @@
     "moduleResolution": "bundler",
     "module": "esnext",
   },
-  "include": ["src/**/*", "test/**/*", "package.json"]
+  "include": ["src/**/*", "package.json"]
 }
