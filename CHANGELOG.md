@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.15.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.14.0...v0.15.0) (2024-07-09)
+
+
+### Features
+
+* 型の見直し ([a46f4a2](https://github.com/cy-takeuchi/kintone-typeguard/commit/a46f4a279b32d731b0ccf26907dc0bd2ea4c9511))
+
+
+### Bug Fixes
+
+* update package ([b71f6b7](https://github.com/cy-takeuchi/kintone-typeguard/commit/b71f6b774d5b942a09b29efa7515e3347b49b5bf))
+
 ## [0.14.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.13.0...v0.14.0) (2024-06-24)
 
 
