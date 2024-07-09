@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.2](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.1...v0.15.2) (2024-07-09)
+
+
+### Bug Fixes
+
+* Subtable ID ([3a50745](https://github.com/cy-takeuchi/kintone-typeguard/commit/3a50745f08abb5bb898f879ee43380883afce9cb))
+
 ## [0.15.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.0...v0.15.1) (2024-07-09)
 
 
