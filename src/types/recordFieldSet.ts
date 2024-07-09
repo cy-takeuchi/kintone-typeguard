@@ -114,7 +114,7 @@ namespace kintoneRecordFieldSet {
 
 	export type Subtable = {
 		type: "SUBTABLE";
-		value: { id: string; value: { [fieldCode: string]: InSubtable } }[];
+		value: { id?: string; value: { [fieldCode: string]: InSubtable } }[];
 	};
 
 	export type Category = {
