@@ -7,7 +7,12 @@ import {
 } from "@kintone/rest-api-client";
 import { config } from "dotenv";
 import { afterAll, beforeAll, expect, expectTypeOf, test } from "vitest";
-import { guardFormField, guardRecord } from "../..";
+import {
+	guardFormField,
+	guardRecord,
+	type kintoneRecordFieldGet,
+	type kintoneRecordFieldSet,
+} from "../..";
 import { addRecord, createApp } from "../functions/operationKintoneApp";
 
 config();
@@ -98,6 +103,70 @@ describe("REST API", async () => {
 
 			if (guardFormField.isFile(field)) {
 				expectTypeOf(field).toEqualTypeOf<KintoneFormFieldProperty.File>();
+			}
+		}
+	});
+
+	test("JS Get", async () => {
+		if (!app || !id) process.exit(1);
+
+		const record = {
+			文字列1行: {
+				type: "SINGLE_LINE_TEXT",
+				value: "",
+			},
+			添付ファイル: {
+				type: "FILE",
+				value: [{ fileKey: "", contentType: "", name: "", size: "" }],
+			},
+		} as kintoneRecordFieldGet.Record;
+
+		expect(guardRecord.isSingleLineText(record.文字列1行)).toBe(true);
+		expect(guardRecord.isFile(record.添付ファイル)).toBe(true);
+
+		for (const fieldCode of Object.keys(record)) {
+			const field = record[fieldCode];
+
+			if (guardRecord.isSingleLineText(field)) {
+				expectTypeOf(
+					field,
+				).toEqualTypeOf<kintoneRecordFieldGet.SingleLineText>();
+			}
+
+			if (guardRecord.isFile(field)) {
+				expectTypeOf(field).toEqualTypeOf<kintoneRecordFieldGet.File>();
+			}
+		}
+	});
+
+	test("JS Set", async () => {
+		if (!app || !id) process.exit(1);
+
+		const record = {
+			文字列1行: {
+				type: "SINGLE_LINE_TEXT",
+				value: "",
+			},
+			添付ファイル: {
+				type: "FILE",
+				value: [{ fileKey: "" }],
+			},
+		} as kintoneRecordFieldSet.Record;
+
+		expect(guardRecord.isSingleLineText(record.文字列1行)).toBe(true);
+		expect(guardRecord.isFile(record.添付ファイル)).toBe(true);
+
+		for (const fieldCode of Object.keys(record)) {
+			const field = record[fieldCode];
+
+			if (guardRecord.isSingleLineText(field)) {
+				expectTypeOf(
+					field,
+				).toEqualTypeOf<kintoneRecordFieldSet.SingleLineText>();
+			}
+
+			if (guardRecord.isFile(field)) {
+				expectTypeOf(field).toEqualTypeOf<kintoneRecordFieldSet.File>();
 			}
 		}
 	});
