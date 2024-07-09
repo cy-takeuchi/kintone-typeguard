@@ -288,7 +288,7 @@ const isSubtable = (
 	{
 		type: "SUBTABLE";
 		value: {
-			id: string;
+			id?: string;
 			value: { [fieldCode: string]: kintoneRecordFieldSet.InSubtable };
 		}[];
 	},
