@@ -4,7 +4,8 @@ import type { kintoneRecordFieldGet } from "../exportTypes/recordFieldGet";
 import type { kintoneRecordFieldSet } from "../exportTypes/recordFieldSet";
 
 type F<A, B> = A extends B ? B : A;
-type FF<A, B, C, D> = F<A, F<B, F<C, F<D, never>>>>;
+type FF<A, B, C> = F<A, F<B, F<C, never>>>;
+type FFF<A, B, C, D> = F<A, F<B, F<C, F<D, never>>>>;
 
 const isRecordNumber = (
 	field:
@@ -12,229 +13,353 @@ const isRecordNumber = (
 		| kintoneRecordFieldGet.OneOf
 		| kintoneRecordFieldSet.OneOf
 		| kintoneRecordFieldEvent.OneOf,
-): field is KintoneRecordField.RecordNumber => field.type === "RECORD_NUMBER";
+): field is FFF<
+	KintoneRecordField.RecordNumber,
+	kintoneRecordFieldGet.RecordNumber,
+	kintoneRecordFieldSet.RecordNumber,
+	kintoneRecordFieldEvent.RecordNumber
+> => field.type === "RECORD_NUMBER";
 const isCreator = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Creator => field.type === "CREATOR";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Creator,
+	kintoneRecordFieldGet.Creator,
+	kintoneRecordFieldSet.Creator,
+	kintoneRecordFieldEvent.Creator
+> => field.type === "CREATOR";
 const isCreatedTime = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.CreatedTime => field.type === "CREATED_TIME";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is
+	| KintoneRecordField.CreatedTime
+	| kintoneRecordFieldGet.CreatedTime
+	| kintoneRecordFieldSet.CreatedTime
+	| kintoneRecordFieldEvent.CreatedTime => field.type === "CREATED_TIME";
 const isModifier = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Modifier => field.type === "MODIFIER";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is
+	| KintoneRecordField.Modifier
+	| kintoneRecordFieldGet.Modifier
+	| kintoneRecordFieldSet.Modifier
+	| kintoneRecordFieldEvent.Modifier => field.type === "MODIFIER";
 const isUpdatedTime = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.UpdatedTime => field.type === "UPDATED_TIME";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is
+	| KintoneRecordField.UpdatedTime
+	| kintoneRecordFieldGet.UpdatedTime
+	| kintoneRecordFieldSet.UpdatedTime
+	| kintoneRecordFieldEvent.UpdatedTime => field.type === "UPDATED_TIME";
 const isSingleLineText = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.SingleLineText =>
-	field.type === "SINGLE_LINE_TEXT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.SingleLineText,
+	kintoneRecordFieldGet.SingleLineText,
+	kintoneRecordFieldEvent.SingleLineText,
+	kintoneRecordFieldSet.SingleLineText
+> => field.type === "SINGLE_LINE_TEXT";
 const isMultiLineText = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.MultiLineText =>
-	field.type === "MULTI_LINE_TEXT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.MultiLineText,
+	kintoneRecordFieldGet.MultiLineText,
+	kintoneRecordFieldSet.MultiLineText,
+	kintoneRecordFieldEvent.MultiLineText
+> => field.type === "MULTI_LINE_TEXT";
 const isRichText = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.RichText => field.type === "RICH_TEXT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.RichText,
+	kintoneRecordFieldGet.RichText,
+	kintoneRecordFieldSet.RichText,
+	kintoneRecordFieldEvent.RichText
+> => field.type === "RICH_TEXT";
 const isNumber = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Number => field.type === "NUMBER";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Number,
+	kintoneRecordFieldGet.Number,
+	kintoneRecordFieldSet.Number,
+	kintoneRecordFieldEvent.Number
+> => field.type === "NUMBER";
 const isCalc = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Calc => field.type === "CALC";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Calc,
+	kintoneRecordFieldGet.Calc,
+	kintoneRecordFieldSet.Calc,
+	kintoneRecordFieldEvent.Calc
+> => field.type === "CALC";
 const isCheckBox = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.CheckBox => field.type === "CHECK_BOX";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.CheckBox,
+	kintoneRecordFieldGet.CheckBox,
+	kintoneRecordFieldSet.CheckBox,
+	kintoneRecordFieldEvent.CheckBox
+> => field.type === "CHECK_BOX";
 const isRadioButton = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.RadioButton => field.type === "RADIO_BUTTON";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.RadioButton,
+	kintoneRecordFieldGet.RadioButton,
+	kintoneRecordFieldSet.RadioButton,
+	kintoneRecordFieldEvent.RadioButton
+> => field.type === "RADIO_BUTTON";
 const isMultiSelect = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.MultiSelect => field.type === "MULTI_SELECT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.MultiSelect,
+	kintoneRecordFieldGet.MultiSelect,
+	kintoneRecordFieldSet.MultiSelect,
+	kintoneRecordFieldEvent.MultiSelect
+> => field.type === "MULTI_SELECT";
 const isDropDown = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Dropdown => field.type === "DROP_DOWN";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Dropdown,
+	kintoneRecordFieldGet.Dropdown,
+	kintoneRecordFieldSet.Dropdown,
+	kintoneRecordFieldEvent.Dropdown
+> => field.type === "DROP_DOWN";
 const isUserSelect = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.UserSelect => field.type === "USER_SELECT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.UserSelect,
+	kintoneRecordFieldGet.UserSelect,
+	kintoneRecordFieldSet.UserSelect,
+	kintoneRecordFieldEvent.UserSelect
+> => field.type === "USER_SELECT";
 const isOrganizationSelect = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.OrganizationSelect =>
-	field.type === "ORGANIZATION_SELECT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.OrganizationSelect,
+	kintoneRecordFieldGet.OrganizationSelect,
+	kintoneRecordFieldSet.OrganizationSelect,
+	kintoneRecordFieldEvent.OrganizationSelect
+> => field.type === "ORGANIZATION_SELECT";
 const isGroupSelect = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.GroupSelect => field.type === "GROUP_SELECT";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.GroupSelect,
+	kintoneRecordFieldGet.GroupSelect,
+	kintoneRecordFieldSet.GroupSelect,
+	kintoneRecordFieldEvent.GroupSelect
+> => field.type === "GROUP_SELECT";
 const isDate = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Date => field.type === "DATE";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Date,
+	kintoneRecordFieldGet.Date,
+	kintoneRecordFieldSet.Date,
+	kintoneRecordFieldEvent.Date
+> => field.type === "DATE";
 const isTime = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Time => field.type === "TIME";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Time,
+	kintoneRecordFieldGet.Time,
+	kintoneRecordFieldSet.Time,
+	kintoneRecordFieldEvent.Time
+> => field.type === "TIME";
 const isDatetime = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.DateTime => field.type === "DATETIME";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.DateTime,
+	kintoneRecordFieldGet.DateTime,
+	kintoneRecordFieldSet.DateTime,
+	kintoneRecordFieldEvent.DateTime
+> => field.type === "DATETIME";
 const isLink = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Link => field.type === "LINK";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Link,
+	kintoneRecordFieldGet.Link,
+	kintoneRecordFieldSet.Link,
+	kintoneRecordFieldEvent.Link
+> => field.type === "LINK";
 const isFile = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.File => field.type === "FILE";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.File,
+	kintoneRecordFieldGet.File,
+	kintoneRecordFieldSet.File,
+	kintoneRecordFieldEvent.File
+> => field.type === "FILE";
 const isSubtable = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Subtable<{
-	[fieldCode: string]: KintoneRecordField.InSubtable;
-}> => field.type === "SUBTABLE";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Subtable<{
+		[fieldCode: string]: KintoneRecordField.InSubtable;
+	}>,
+	{
+		type: "SUBTABLE";
+		value: {
+			id: string;
+			value: { [fieldCode: string]: kintoneRecordFieldGet.InSubtable };
+		}[];
+	},
+	{
+		type: "SUBTABLE";
+		value: {
+			id: string;
+			value: { [fieldCode: string]: kintoneRecordFieldSet.InSubtable };
+		}[];
+	},
+	{
+		type: "SUBTABLE";
+		value: {
+			id: string;
+			value: { [fieldCode: string]: kintoneRecordFieldEvent.InSubtable };
+		}[];
+	}
+> => field.type === "SUBTABLE";
 const isCategory = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Category => field.type === "CATEGORY";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		| kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FFF<
+	KintoneRecordField.Category,
+	kintoneRecordFieldGet.Category,
+	kintoneRecordFieldSet.Category,
+	kintoneRecordFieldEvent.Category
+> => field.type === "CATEGORY";
 const isStatus = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Status => field.type === "STATUS";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		// | kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FF<
+	KintoneRecordField.Status,
+	kintoneRecordFieldGet.Status,
+	// kintoneRecordFieldSet.Status,
+	kintoneRecordFieldEvent.Status
+> => field.type === "STATUS";
 const isStatusAssignee = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.StatusAssignee =>
-	field.type === "STATUS_ASSIGNEE";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		// | kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FF<
+	KintoneRecordField.StatusAssignee,
+	kintoneRecordFieldGet.StatusAssignee,
+	// kintoneRecordFieldSet.StatusAssignee,
+	kintoneRecordFieldEvent.StatusAssignee
+> => field.type === "STATUS_ASSIGNEE";
 const isID = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.ID => field.type === "__ID__";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		// | kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FF<
+	KintoneRecordField.ID,
+	kintoneRecordFieldGet.ID,
+	// kintoneRecordFieldSet.ID,
+	kintoneRecordFieldEvent.ID
+> => field.type === "__ID__";
 const isRevision = (
-	field: FF<
-		KintoneRecordField.OneOf,
-		kintoneRecordFieldGet.OneOf,
-		kintoneRecordFieldSet.OneOf,
-		kintoneRecordFieldEvent.OneOf
-	>,
-): field is KintoneRecordField.Revision => field.type === "__REVISION__";
+	field:
+		| KintoneRecordField.OneOf
+		| kintoneRecordFieldGet.OneOf
+		// | kintoneRecordFieldSet.OneOf
+		| kintoneRecordFieldEvent.OneOf,
+): field is FF<
+	KintoneRecordField.Revision,
+	kintoneRecordFieldGet.Revision,
+	// kintoneRecordFieldSet.Revision,
+	kintoneRecordFieldEvent.Revision
+> => field.type === "__REVISION__";
 
 export {
 	isRecordNumber,
