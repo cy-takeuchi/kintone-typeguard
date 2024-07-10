@@ -48,7 +48,9 @@ describe("REST API", async () => {
 	test("RECORD", async () => {
 		if (!app || !id) process.exit(1);
 
-		const { record } = await client.record.getRecord({ app, id });
+		const { record } = await client.record.getRecord<{
+			[fieldCode: string]: KintoneRecordField.OneOf;
+		}>({ app, id });
 
 		expect(guardRecord.isSingleLineText(record.文字列1行)).toBe(true);
 		expect(guardRecord.isFile(record.添付ファイル)).toBe(true);
