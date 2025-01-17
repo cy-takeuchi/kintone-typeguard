@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.5](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.4...v0.15.5) (2025-01-17)
+
+
+### Bug Fixes
+
+* bump @types/node from 20.14.10 to 22.10.5 ([a113a40](https://github.com/cy-takeuchi/kintone-typeguard/commit/a113a408302ed557c46d0c98f41d4bd2d4a4b7f5))
+* bump vite from 5.4.7 to 6.0.7 ([69a38df](https://github.com/cy-takeuchi/kintone-typeguard/commit/69a38dfc9192b2a198c8fc1c558bd2cf0572931a))
+
 ## [0.15.4](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.3...v0.15.4) (2024-12-30)
 
 
