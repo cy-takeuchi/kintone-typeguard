@@ -199,7 +199,10 @@ namespace kintoneRecordFieldGet {
 		| Revision;
 
 	export type Record = {
-		[fieldCode: string]: OneOf;
+		$id?: ID;
+		$revision?: Revision;
+	} & {
+		[key: Exclude<string, "$id" | "$revision">]: Exclude<OneOf, ID | Revision>;
 	};
 }
 
