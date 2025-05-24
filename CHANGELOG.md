@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.16.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.4...v0.16.0) (2025-05-24)
+
+
+### Features
+
+* $id, $revisionプロパティを固定で追加 ([919e662](https://github.com/cy-takeuchi/kintone-typeguard/commit/919e662a279db5eb31014a4a329f9ebddbd29c3a))
+* update package ([c30dcfe](https://github.com/cy-takeuchi/kintone-typeguard/commit/c30dcfe2a5b2b712722222c153295982cae45af4))
+
+
+### Bug Fixes
+
+* bump @types/node from 20.14.10 to 22.10.5 ([a113a40](https://github.com/cy-takeuchi/kintone-typeguard/commit/a113a408302ed557c46d0c98f41d4bd2d4a4b7f5))
+* bump vite from 5.4.7 to 6.0.7 ([69a38df](https://github.com/cy-takeuchi/kintone-typeguard/commit/69a38dfc9192b2a198c8fc1c558bd2cf0572931a))
+
 ## [0.15.4](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.3...v0.15.4) (2024-12-30)
 
 
