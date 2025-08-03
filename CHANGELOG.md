@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.17.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.16.0...v0.17.0) (2025-08-03)
+
+
+### Features
+
+* Add converter function for record conversion ([6427973](https://github.com/cy-takeuchi/kintone-typeguard/commit/6427973825f79229ccf000e77cd2bf0a59d2b47c))
+* Add converter function for record conversion ([d30aaa9](https://github.com/cy-takeuchi/kintone-typeguard/commit/d30aaa9ab18634e27daa29a3bd14b112939616ce))
+
 ## [0.16.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.15.4...v0.16.0) (2025-05-24)
 
 
