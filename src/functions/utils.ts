@@ -30,7 +30,7 @@ import {
 	isUserSelect,
 } from "./record";
 
-export const getToSet = (
+export const converterGetToSet = (
 	record: kintoneRecordFieldGet.Record,
 ): kintoneRecordFieldSet.Record => {
 	const convertedRecord: kintoneRecordFieldSet.Record = {};
