@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.17.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.0...v0.17.1) (2025-08-03)
+
+
+### Bug Fixes
+
+* export converter function ([d41882b](https://github.com/cy-takeuchi/kintone-typeguard/commit/d41882b0700297d21088e0ef5a815c54afa21115))
+* renamed converter to utils ([a6d810c](https://github.com/cy-takeuchi/kintone-typeguard/commit/a6d810c8bf0ff7daa43901a39d41ea15c551b806))
+
 ## [0.17.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.16.0...v0.17.0) (2025-08-03)
 
 
