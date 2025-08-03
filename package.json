@@ -38,7 +38,8 @@
     "build": "tsc && vite build",
     "watch": "tsc && vite build --watch",
     "prepare": "npm run build",
-    "check": "biome check --apply ./src",
+    "biome": "biome check ./src",
+    "tsc": "tsc",
     "test": "vitest --config vite-test.config.ts"
   },
   "dependencies": {
