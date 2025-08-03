@@ -1,0 +1,27 @@
+name: Code check
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run Biome
+        run: npm run biome
+      - name: Run TSC
+        run: npm run tsc
+      # - name: Run Tests
+      #   run: npm run test

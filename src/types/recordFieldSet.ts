@@ -163,12 +163,12 @@ namespace kintoneRecordFieldSet {
 	// | Lookup;
 
 	export type OneOf =
-		| RecordNumber
-		| Creator
-		| CreatedTime
-		| Modifier
-		| UpdatedTime
-		| Category
+		// | RecordNumber
+		// | Creator
+		// | CreatedTime
+		// | Modifier
+		// | UpdatedTime
+		// | Category
 		// | Status
 		// | StatusAssignee
 		| SingleLineText
