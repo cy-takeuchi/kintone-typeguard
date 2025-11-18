@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.2](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.1...v0.17.2) (2025-11-18)
+
+
+### Bug Fixes
+
+* update package-lock.json format ([ce10820](https://github.com/cy-takeuchi/kintone-typeguard/commit/ce108203480d94f0d20baa393e44a9bd2b66c128))
+
 ## [0.17.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.0...v0.17.1) (2025-08-03)
 
 
