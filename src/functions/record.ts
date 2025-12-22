@@ -2,321 +2,276 @@ import type { KintoneRecordField } from "@kintone/rest-api-client";
 import type { kintoneRecordFieldEvent } from "../exportTypes/recordFieldEvent";
 import type { kintoneRecordFieldGet } from "../exportTypes/recordFieldGet";
 import type { kintoneRecordFieldSet } from "../exportTypes/recordFieldSet";
-import type { kintoneRecordFieldUnified } from "../exportTypes/recordFieldUnified";
 
 type F<A, B> = A extends B ? B : A;
 type FFF<A, B, C, D> = F<A, F<B, F<C, F<D, never>>>>;
-type FFFF<A, B, C, D, E> = F<A, F<B, F<C, F<D, F<E, never>>>>>;
 
-/** すべてのフィールド型のユニオン（5つのコンテキストに対応） */
+/**
+ * すべてのフィールド型のユニオン（4つのコンテキストに対応）
+ * kintoneRecordFieldUnifiedはKintoneRecordFieldと同一のため含まない
+ */
 type AllFieldTypes =
 	| KintoneRecordField.OneOf
 	| kintoneRecordFieldGet.OneOf
 	| kintoneRecordFieldSet.OneOf
-	| kintoneRecordFieldEvent.OneOf
-	| kintoneRecordFieldUnified.OneOf;
+	| kintoneRecordFieldEvent.OneOf;
 
 const isRecordNumber = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.RecordNumber,
 	kintoneRecordFieldGet.RecordNumber,
-	kintoneRecordFieldSet.RecordNumber,
 	kintoneRecordFieldEvent.RecordNumber,
-	kintoneRecordFieldUnified.RecordNumber
+	kintoneRecordFieldSet.RecordNumber
 > => field.type === "RECORD_NUMBER";
 
 const isCreator = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Creator,
 	kintoneRecordFieldGet.Creator,
-	kintoneRecordFieldSet.Creator,
 	kintoneRecordFieldEvent.Creator,
-	kintoneRecordFieldUnified.Creator
+	kintoneRecordFieldSet.Creator
 > => field.type === "CREATOR";
 
 const isCreatedTime = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.CreatedTime,
 	kintoneRecordFieldGet.CreatedTime,
-	kintoneRecordFieldSet.CreatedTime,
 	kintoneRecordFieldEvent.CreatedTime,
-	kintoneRecordFieldUnified.CreatedTime
+	kintoneRecordFieldSet.CreatedTime
 > => field.type === "CREATED_TIME";
 
 const isModifier = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Modifier,
 	kintoneRecordFieldGet.Modifier,
-	kintoneRecordFieldSet.Modifier,
 	kintoneRecordFieldEvent.Modifier,
-	kintoneRecordFieldUnified.Modifier
+	kintoneRecordFieldSet.Modifier
 > => field.type === "MODIFIER";
 
 const isUpdatedTime = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.UpdatedTime,
 	kintoneRecordFieldGet.UpdatedTime,
-	kintoneRecordFieldSet.UpdatedTime,
 	kintoneRecordFieldEvent.UpdatedTime,
-	kintoneRecordFieldUnified.UpdatedTime
+	kintoneRecordFieldSet.UpdatedTime
 > => field.type === "UPDATED_TIME";
 
 const isSingleLineText = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.SingleLineText,
 	kintoneRecordFieldGet.SingleLineText,
-	kintoneRecordFieldSet.SingleLineText,
 	kintoneRecordFieldEvent.SingleLineText,
-	kintoneRecordFieldUnified.SingleLineText
+	kintoneRecordFieldSet.SingleLineText
 > => field.type === "SINGLE_LINE_TEXT";
 
 const isMultiLineText = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.MultiLineText,
 	kintoneRecordFieldGet.MultiLineText,
-	kintoneRecordFieldSet.MultiLineText,
 	kintoneRecordFieldEvent.MultiLineText,
-	kintoneRecordFieldUnified.MultiLineText
+	kintoneRecordFieldSet.MultiLineText
 > => field.type === "MULTI_LINE_TEXT";
 
 const isRichText = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.RichText,
 	kintoneRecordFieldGet.RichText,
-	kintoneRecordFieldSet.RichText,
 	kintoneRecordFieldEvent.RichText,
-	kintoneRecordFieldUnified.RichText
+	kintoneRecordFieldSet.RichText
 > => field.type === "RICH_TEXT";
 
 const isNumber = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Number,
 	kintoneRecordFieldGet.Number,
-	kintoneRecordFieldSet.Number,
 	kintoneRecordFieldEvent.Number,
-	kintoneRecordFieldUnified.Number
+	kintoneRecordFieldSet.Number
 > => field.type === "NUMBER";
 
 const isCalc = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Calc,
 	kintoneRecordFieldGet.Calc,
-	kintoneRecordFieldSet.Calc,
 	kintoneRecordFieldEvent.Calc,
-	kintoneRecordFieldUnified.Calc
+	kintoneRecordFieldSet.Calc
 > => field.type === "CALC";
 
 const isCheckBox = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.CheckBox,
 	kintoneRecordFieldGet.CheckBox,
-	kintoneRecordFieldSet.CheckBox,
 	kintoneRecordFieldEvent.CheckBox,
-	kintoneRecordFieldUnified.CheckBox
+	kintoneRecordFieldSet.CheckBox
 > => field.type === "CHECK_BOX";
 
 const isRadioButton = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.RadioButton,
 	kintoneRecordFieldGet.RadioButton,
-	kintoneRecordFieldSet.RadioButton,
 	kintoneRecordFieldEvent.RadioButton,
-	kintoneRecordFieldUnified.RadioButton
+	kintoneRecordFieldSet.RadioButton
 > => field.type === "RADIO_BUTTON";
 
 const isMultiSelect = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.MultiSelect,
 	kintoneRecordFieldGet.MultiSelect,
-	kintoneRecordFieldSet.MultiSelect,
 	kintoneRecordFieldEvent.MultiSelect,
-	kintoneRecordFieldUnified.MultiSelect
+	kintoneRecordFieldSet.MultiSelect
 > => field.type === "MULTI_SELECT";
 
 const isDropDown = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Dropdown,
 	kintoneRecordFieldGet.Dropdown,
-	kintoneRecordFieldSet.Dropdown,
 	kintoneRecordFieldEvent.Dropdown,
-	kintoneRecordFieldUnified.Dropdown
+	kintoneRecordFieldSet.Dropdown
 > => field.type === "DROP_DOWN";
 
 const isUserSelect = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.UserSelect,
 	kintoneRecordFieldGet.UserSelect,
-	kintoneRecordFieldSet.UserSelect,
 	kintoneRecordFieldEvent.UserSelect,
-	kintoneRecordFieldUnified.UserSelect
+	kintoneRecordFieldSet.UserSelect
 > => field.type === "USER_SELECT";
 
 const isOrganizationSelect = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.OrganizationSelect,
 	kintoneRecordFieldGet.OrganizationSelect,
-	kintoneRecordFieldSet.OrganizationSelect,
 	kintoneRecordFieldEvent.OrganizationSelect,
-	kintoneRecordFieldUnified.OrganizationSelect
+	kintoneRecordFieldSet.OrganizationSelect
 > => field.type === "ORGANIZATION_SELECT";
 
 const isGroupSelect = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.GroupSelect,
 	kintoneRecordFieldGet.GroupSelect,
-	kintoneRecordFieldSet.GroupSelect,
 	kintoneRecordFieldEvent.GroupSelect,
-	kintoneRecordFieldUnified.GroupSelect
+	kintoneRecordFieldSet.GroupSelect
 > => field.type === "GROUP_SELECT";
 
 const isDate = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Date,
 	kintoneRecordFieldGet.Date,
-	kintoneRecordFieldSet.Date,
 	kintoneRecordFieldEvent.Date,
-	kintoneRecordFieldUnified.Date
+	kintoneRecordFieldSet.Date
 > => field.type === "DATE";
 
 const isTime = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Time,
 	kintoneRecordFieldGet.Time,
-	kintoneRecordFieldSet.Time,
 	kintoneRecordFieldEvent.Time,
-	kintoneRecordFieldUnified.Time
+	kintoneRecordFieldSet.Time
 > => field.type === "TIME";
 
 const isDatetime = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.DateTime,
 	kintoneRecordFieldGet.DateTime,
-	kintoneRecordFieldSet.DateTime,
 	kintoneRecordFieldEvent.DateTime,
-	kintoneRecordFieldUnified.DateTime
+	kintoneRecordFieldSet.DateTime
 > => field.type === "DATETIME";
 
 const isLink = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Link,
 	kintoneRecordFieldGet.Link,
-	kintoneRecordFieldSet.Link,
 	kintoneRecordFieldEvent.Link,
-	kintoneRecordFieldUnified.Link
+	kintoneRecordFieldSet.Link
 > => field.type === "LINK";
 
 const isFile = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.File,
 	kintoneRecordFieldGet.File,
-	kintoneRecordFieldSet.File,
 	kintoneRecordFieldEvent.File,
-	kintoneRecordFieldUnified.File
+	kintoneRecordFieldSet.File
 > => field.type === "FILE";
 
 const isSubtable = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Subtable<{
 		[fieldCode: string]: KintoneRecordField.InSubtable;
 	}>,
-	{
-		type: "SUBTABLE";
-		value: {
-			id: string;
-			value: { [fieldCode: string]: kintoneRecordFieldGet.InSubtable };
-		}[];
-	},
-	{
-		type: "SUBTABLE";
-		value: {
-			id?: string;
-			value: { [fieldCode: string]: kintoneRecordFieldSet.InSubtable };
-		}[];
-	},
-	{
-		type: "SUBTABLE";
-		value: {
-			id: string;
-			value: { [fieldCode: string]: kintoneRecordFieldEvent.InSubtable };
-		}[];
-	},
-	kintoneRecordFieldUnified.Subtable
+	kintoneRecordFieldGet.Subtable,
+	kintoneRecordFieldEvent.Subtable,
+	kintoneRecordFieldSet.Subtable
 > => field.type === "SUBTABLE";
 
 const isCategory = (
 	field: AllFieldTypes,
-): field is FFFF<
+): field is FFF<
 	KintoneRecordField.Category,
 	kintoneRecordFieldGet.Category,
-	kintoneRecordFieldSet.Category,
 	kintoneRecordFieldEvent.Category,
-	kintoneRecordFieldUnified.Category
+	kintoneRecordFieldSet.Category
 > => field.type === "CATEGORY";
 
 /** isStatus/isStatusAssignee/isID/isRevision は Set には存在しないため、Setを除く型に対応 */
 type AllFieldTypesWithoutSet =
 	| KintoneRecordField.OneOf
 	| kintoneRecordFieldGet.OneOf
-	| kintoneRecordFieldEvent.OneOf
-	| kintoneRecordFieldUnified.OneOf;
+	| kintoneRecordFieldEvent.OneOf;
+
+type FF<A, B, C> = F<A, F<B, F<C, never>>>;
 
 const isStatus = (
 	field: AllFieldTypesWithoutSet,
-): field is FFF<
+): field is FF<
 	KintoneRecordField.Status,
 	kintoneRecordFieldGet.Status,
-	kintoneRecordFieldEvent.Status,
-	kintoneRecordFieldUnified.Status
+	kintoneRecordFieldEvent.Status
 > => field.type === "STATUS";
 
 const isStatusAssignee = (
 	field: AllFieldTypesWithoutSet,
-): field is FFF<
+): field is FF<
 	KintoneRecordField.StatusAssignee,
 	kintoneRecordFieldGet.StatusAssignee,
-	kintoneRecordFieldEvent.StatusAssignee,
-	kintoneRecordFieldUnified.StatusAssignee
+	kintoneRecordFieldEvent.StatusAssignee
 > => field.type === "STATUS_ASSIGNEE";
 
 const isID = (
 	field: AllFieldTypesWithoutSet,
-): field is FFF<
+): field is FF<
 	KintoneRecordField.ID,
 	kintoneRecordFieldGet.ID,
-	kintoneRecordFieldEvent.ID,
-	kintoneRecordFieldUnified.ID
+	kintoneRecordFieldEvent.ID
 > => field.type === "__ID__";
 
 const isRevision = (
 	field: AllFieldTypesWithoutSet,
-): field is FFF<
+): field is FF<
 	KintoneRecordField.Revision,
 	kintoneRecordFieldGet.Revision,
-	kintoneRecordFieldEvent.Revision,
-	kintoneRecordFieldUnified.Revision
+	kintoneRecordFieldEvent.Revision
 > => field.type === "__REVISION__";
 
 export {
