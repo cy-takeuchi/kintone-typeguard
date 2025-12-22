@@ -86,12 +86,12 @@ namespace kintoneRecordFieldGet {
 
 	export interface Date {
 		type: "DATE";
-		value: string;
+		value: string | null;
 	}
 
 	export interface Time {
 		type: "TIME";
-		value: string;
+		value: string | null;
 	}
 
 	export interface DateTime {

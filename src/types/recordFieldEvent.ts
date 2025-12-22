@@ -111,14 +111,14 @@ namespace kintoneRecordFieldEvent {
 
 	export interface Date {
 		type: "DATE";
-		value: string;
+		value: string | null;
 		disabled?: boolean;
 		error?: string | null;
 	}
 
 	export interface Time {
 		type: "TIME";
-		value: string;
+		value: string | null;
 		disabled?: boolean;
 		error?: string | null;
 	}
