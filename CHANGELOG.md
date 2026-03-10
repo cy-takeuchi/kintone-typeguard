@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.18.0...v0.18.1) (2026-03-10)
+
+
+### Bug Fixes
+
+* update actions version ([c1eb6c8](https://github.com/cy-takeuchi/kintone-typeguard/commit/c1eb6c8493e89146c5af6d1c0a44d5d4a5fe244a))
+* update actions version ([09e1577](https://github.com/cy-takeuchi/kintone-typeguard/commit/09e1577fa843c6c281205cb54c6289d36f933610))
+
 ## [0.18.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.2...v0.18.0) (2026-03-10)
 
 
