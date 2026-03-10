@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.18.0](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.2...v0.18.0) (2026-03-10)
+
+
+### Features
+
+* add unified field types for @kintone/rest-api-client compatibility ([b20e499](https://github.com/cy-takeuchi/kintone-typeguard/commit/b20e4992431b496daccba800fd491bcdf6342dad))
+* update package ([0e24ae3](https://github.com/cy-takeuchi/kintone-typeguard/commit/0e24ae3832035cbda60073d2cedff525371a63e3))
+* update package dependencies ([6dd140c](https://github.com/cy-takeuchi/kintone-typeguard/commit/6dd140c034442da39ffa3eee9634205ee61b3acf))
+
 ## [0.17.2](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.17.1...v0.17.2) (2025-11-18)
 
 
