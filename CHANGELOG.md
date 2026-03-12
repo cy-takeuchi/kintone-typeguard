@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.2](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.18.1...v0.18.2) (2026-03-12)
+
+
+### Bug Fixes
+
+* separate publish workflow and simplify release-please config ([2f7b3a4](https://github.com/cy-takeuchi/kintone-typeguard/commit/2f7b3a49f8aeb7241128069778d1c2438c097203))
+* separate publish workflow and simplify release-please config ([d0674cc](https://github.com/cy-takeuchi/kintone-typeguard/commit/d0674cc23611317f40a300428f892c7d76f5819b))
+
 ## [0.18.1](https://github.com/cy-takeuchi/kintone-typeguard/compare/v0.18.0...v0.18.1) (2026-03-10)
 
 
