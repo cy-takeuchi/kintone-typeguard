@@ -2,6 +2,11 @@
 
 [![npm version](https://badge.fury.io/js/kintone-typeguard.svg)](https://badge.fury.io/js/kintone-typeguard)
 
+> [!WARNING]
+> **This package is deprecated.** Please migrate to [tsumekae](https://www.npmjs.com/package/tsumekae) ([GitHub](https://github.com/cy-takeuchi/jissoku/tree/main/packages/tsumekae)).
+>
+> **このパッケージは非推奨です。** 今後は [tsumekae](https://www.npmjs.com/package/tsumekae) をご利用ください。
+
 Typeguard for [@kintone/rest-api-client](https://www.npmjs.com/package/@kintone/rest-api-client) fields.
 
 - [Installation](#installation)
